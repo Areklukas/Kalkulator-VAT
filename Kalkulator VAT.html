@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+	<title>Kalkulator VAT</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<script type="text/javascript">
+    
+		function policz()
+			{
+				var cena = document.getElementById("cena").value;
+				var ilosc = document.getElementById("ilosc").value;
+				var podatek = parseFloat(cena*1.18) * parseFloat(ilosc);
+				var vat = parseFloat(cena*1.23) * parseFloat(ilosc);
+				var ppodatek = document.getElementById("podatek").checked
+				var pvat = document.getElementById("vat").checked
+				var wynik = parseFloat(cena)* parseFloat(ilosc);
+				document.getElementById("netto").innerHTML=wynik  
+            
+				if(pvat==true)
+					{
+						document.getElementById("nettovat").innerHTML=vat;
+					};
+				if(ppodatek==true)
+					{
+						document.getElementById("nettopodatek").innerHTML=podatek;
+					};
+			}
+	</script>
+</head>
+
+	<body>
+		<div>Cena:<br><input type="text" id="cena"/></div></br>
+		<div>Ilość:<br><input type="text" id="ilosc"/></div></br>
+    
+		+ VAT <input type="checkbox" id="vat"/></br>
+		+ PODATEK <input type="checkbox" id="podatek"/></br>
+		Cena netto: <div id="netto"></div><br>
+		Cena netto + VAT: <div id="nettovat"></div></br>
+		Cena netto + podatek: <div id="nettopodatek"></div></br>
+    
+		<input type="submit" value="Policz" onclick="policz()"/>
+    
+	</body>
+</html>
